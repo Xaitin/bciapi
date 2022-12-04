@@ -24,6 +24,21 @@ app.post('/bciapi/post/Pallet', function(req,res){
         res.send(err);
     });
 });
+app.post('/bciapi/post/UpdatePalletOrder', function(req,res){
+    console.log("Post request activated");
+    console.log(req.body);
+    let data = req.body;
+    console.log(data.License_Plate);
+    db.collection('Pallets').doc(data.License_Plate).update(data.Order_Num)
+    .then(result=>{
+        console.log(result);
+        res.send(result);
+    })
+    .catch(err=>{
+        console.log(err);
+        res.send(err);
+    });
+});
 app.post('/bciapi/post/Inbound_Shipment', function(req,res){
     console.log("Post request activated");
     console.log(req.body);
