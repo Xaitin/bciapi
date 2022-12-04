@@ -36,7 +36,7 @@ jobs:
           npm install eslint-detailed-reporter --save-dev
 
       - name: Run ESLint
-        run: npm eslint ./ -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html
+        run: eslint ./ -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html
         continue-on-error: true
 
       - name: Upload analysis results to GitHub
