@@ -30,7 +30,7 @@ app.post('/bciapi/post/UpdatePalletOrder', function(req,res){
     let data = JSON.parse(req.body);
     console.log(data.License_Plate);
     console.log(data.Order_Num)
-    db.collection('Pallets').doc(data.License_Plate).update({Order_Num: data.Order_Num})
+    db.collection('Pallets').doc(data.License_Plate).update({"Order_Num": data.Order_Num})
     .then(result=>{
         console.log(result);
         res.send(result);
@@ -75,7 +75,7 @@ app.post('/bciapi/post/Order', function(req,res){
     console.log(req.body);
     let data = req.body;
     console.log(data.Order_Num);
-    db.collection('Orders').doc(data.Order_Num).set(data)
+    db.collection('Order_List').doc(data.Order_Num).set(data)
     .then(result=>{
         console.log(result);
         res.send(result);
