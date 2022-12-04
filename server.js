@@ -25,7 +25,7 @@ app.post('/bciapi/post/Pallet', function(req,res){
     });
 });
 app.post('/bciapi/post/UpdatePalletOrder', function(req,res){
-    console.log("Post request activated");
+    console.log("Post request activated testing?");
     console.log(req.body);
     let data = req.body;
     console.log(data.Order_Num);
