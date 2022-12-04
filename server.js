@@ -29,7 +29,8 @@ app.post('/bciapi/post/UpdatePalletOrder', function(req,res){
     console.log(req.body);
     let data = req.body;
     console.log(data.License_Plate);
-    db.collection('Pallets').doc(data.License_Plate).update(data.Order_Num)
+    console.log(data.Order_Num)
+    db.collection('Pallets').doc(data.License_Plate).update({Order_Num: data.Order_Num})
     .then(result=>{
         console.log(result);
         res.send(result);
