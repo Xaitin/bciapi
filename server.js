@@ -133,6 +133,20 @@ app.get('/bciapi/get/Pallets', async (req, res) => {
     res.send(data);
 });
 
+app.get('/bciapi/get/AvailablePallets', async (req, res) => {
+    const pallets = db.collection('Pallets');
+    const snapshot = await pallets.where("Order_Num", "==", "").get();
+    if (snapshot.empty) {
+      console.log('No matching documents.');
+      res.send("no data");
+    }
+    let data = [];
+    snapshot.forEach(doc => {
+      data.push(doc.data());
+    });
+    res.send(data);
+});
+
 app.get('/bciapi/get/Inbound_Shipments', async (req, res) => {
     const shipments = db.collection('Inbound_Shipments');
     const snapshot = await shipments.get();
