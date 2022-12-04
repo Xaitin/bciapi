@@ -27,8 +27,8 @@ app.post('/bciapi/post/Pallet', function(req,res){
 app.post('/bciapi/post/UpdatePalletOrder', function(req,res){
     console.log("Post request activated");
     console.log(req.body);
-    let data = JSON.parse(req.body);
-    console.log(data);
+    let data = req.body;
+    console.log(data.Order_Num);
     db.collection('Pallets').doc(data.License_Plate).update({Order_Num: data.Order_Num})
     .then(result=>{
         console.log(result);
