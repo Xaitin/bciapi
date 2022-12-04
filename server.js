@@ -1,9 +1,7 @@
 const express = require('express'),
 db = require('./firebase.js'),
-admin = require('firebase-admin'),
-path = require('path'),
 url = require('url');
-app = express();
+let app = express();
 const PORT = 8505;
 app.use(function(req, res, next){
     res.header("Access-Control-Allow-Origin", "*");
@@ -14,7 +12,7 @@ app.use(express.json());
 app.post('/bciapi/post/Pallet', function(req,res){
     console.log("Post request activated");
     console.log(req.body);
-    data = req.body;
+    let data = req.body;
     console.log(data.License_Plate);
     db.collection('Pallets').doc(data.License_Plate).set(data)
     .then(result=>{
@@ -29,7 +27,7 @@ app.post('/bciapi/post/Pallet', function(req,res){
 app.post('/bciapi/post/Inbound_Shipment', function(req,res){
     console.log("Post request activated");
     console.log(req.body);
-    data = req.body;
+    let data = req.body;
     console.log(data.Shipment_Num);
     db.collection('Inbound_Shipments').doc(data.Shipment_Num).set(data)
     .then(result=>{
@@ -44,7 +42,7 @@ app.post('/bciapi/post/Inbound_Shipment', function(req,res){
 app.post('/bciapi/post/Outbound_Shipment', function(req,res){
     console.log("Post request activated");
     console.log(req.body);
-    data = req.body;
+    let data = req.body;
     console.log(data.Shipment_Num);
     db.collection('Outbound_Shipments').doc(data.Shipment_Num).set(data)
     .then(result=>{
@@ -59,7 +57,7 @@ app.post('/bciapi/post/Outbound_Shipment', function(req,res){
 app.post('/bciapi/post/Order', function(req,res){
     console.log("Post request activated");
     console.log(req.body);
-    data = req.body;
+    let data = req.body;
     console.log(data.Order_Num);
     db.collection('Orders').doc(data.Order_Num).set(data)
     .then(result=>{
@@ -74,7 +72,7 @@ app.post('/bciapi/post/Order', function(req,res){
 app.post('/bciapi/post/User', function(req,res){
     console.log("Post request activated");
     console.log(req.body);
-    data = req.body;
+    let data = req.body;
     console.log(data.Username);
     db.collection('Users').doc(data.Username).set(data)
     .then(result=>{
@@ -230,5 +228,5 @@ app.get('/bciapi/get/hello', (req, res) => {
     res.send("hi there")
 });
 app.listen(PORT,function(req,res){
-    console.log('started');
+    console.log('started ' + req + res);
 });
