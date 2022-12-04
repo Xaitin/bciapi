@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export BCIAPIPATH=/home/bcinvens/
-    - /bin/cp -R /home/bcinvens/repositories/bciapi $BCIAPIPATH
+    - export PATH=/home/bcinvens/
+    - /bin/cp -R /home/bcinvens/repositories/bciapi $PATH
