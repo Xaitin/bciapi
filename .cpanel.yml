@@ -1,6 +1,4 @@
 deployment:
   tasks:
     - export BCIAPIPATH=/home/bcinvens/bciapi/
-    - export INVENSTORYPATH=/home/bcinvens/Invenstory/
     - /bin/cp -R /home/bcinvens/repositories/Invenstory/bciapi $BCIAPIPATH
-    - /bin/cp -R /home/bcinvens/repositories/Invenstory/Invenstory $INVENSTORYPATH
